@@ -30,6 +30,7 @@ def generate_vectors(point_pool: list) -> list:
 def generate_convex_polygon_randomly(n: int) -> Polygon:
     """
     Generate a convex polygon randomly.
+    Reference: https://cglab.ca/~sander/misc/ConvexGeneration/convex.html
     """
     if n < 3:
         raise GenerateConvexPolygonError('The n must large than or equal to 3')
