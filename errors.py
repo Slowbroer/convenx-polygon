@@ -1,0 +1,2 @@
+class GenerateConvexPolygonError(Exception):
+    pass
