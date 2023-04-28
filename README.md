@@ -14,3 +14,9 @@
 # How it works?
 
 ![Image text](./img/how%20it%20works.png)
+
+# How to execute?
+
+```Shell
+$ python3 main.py
+```
