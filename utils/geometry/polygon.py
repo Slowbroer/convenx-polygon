@@ -30,9 +30,9 @@ class Polygon:
         first_point, second_point = points[0], points[1]
         for third_point in points[2:]:
             res += abs(
-                first_point[0] * (second_point[1] - third_point[1])
-                + second_point[0] * (third_point[1] - first_point[1])
-                + third_point[0] * (first_point[1] - second_point[1])
+                first_point.x * (second_point.y - third_point.y)
+                + second_point.x * (third_point.y - first_point.y)
+                + third_point.x * (first_point.y - second_point.y)
             ) / 2
             second_point = third_point
         return res

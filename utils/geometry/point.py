@@ -13,6 +13,3 @@ class Point:
     @property
     def y(self):
         return self._y
-    
-    def __getitem__(self, index):
-        return (self.x, self.y)[index]
