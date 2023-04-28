@@ -61,7 +61,6 @@ def generate_convex_polygon_randomly(n: int) -> Polygon:
     y_shift = y_pool[0] - min_polygon_y
 
     points = [Point(item[0] + x_shift, item[1] + y_shift) for item in points]
-    print(len(points))
     return Polygon(points)
 
 def polygon_area_with_monte_carlo_method(polygon: Polygon) -> float:
