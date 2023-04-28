@@ -1,10 +1,15 @@
 import math
+import os
 
 import numpy as np
+from dotenv import load_dotenv
+
 from errors import GenerateConvexPolygonError
 from utils.geometry.point import Point
 from utils.geometry.polygon import Polygon
 
+
+load_dotenv()
 
 def generate_vectors(point_pool: list) -> list:
     """
@@ -77,16 +82,16 @@ def polygon_area_with_monte_carlo_method(polygon: Polygon) -> float:
     # get the area of the square according to the bounds of the polygon
     square_area = (max_x - min_x) * (max_y - min_y)
 
-    random_point_count = 100000
+    random_points_count = max(int(os.environ.get("MONTE_CARLO_RANDOM_POINTS_COUNT", 100000)), 100000)
     in_polygon_count = 0
-    random_points_x = np.random.randint(min_x, max_x, random_point_count)
-    random_points_y = np.random.randint(min_y, max_y, random_point_count)
-    for i in range(random_point_count):
+    random_points_x = np.random.randint(min_x, max_x, random_points_count)
+    random_points_y = np.random.randint(min_y, max_y, random_points_count)
+    for i in range(random_points_count):
         # randomly generate a point in the square
         random_point = Point(random_points_x[i], random_points_y[i])
         if polygon.contains(random_point):
             in_polygon_count += 1
-    return round((in_polygon_count / random_point_count) * square_area, 2)
+    return round((in_polygon_count / random_points_count) * square_area, 2)
 
 
 convex_polygon = generate_convex_polygon_randomly(np.random.randint(3, 100))

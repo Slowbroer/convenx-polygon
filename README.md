@@ -18,5 +18,6 @@
 # How to execute?
 
 ```Shell
+$ cp .env.example .env
 $ python3 main.py
 ```
